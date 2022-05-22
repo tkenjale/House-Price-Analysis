@@ -1,0 +1,10 @@
+---
+title: "House Price Data Modeling"
+output: html_notebook
+---
+
+```{r}
+data <- read.csv("clean_data/train_clean_v1.csv")
+data
+```
+
