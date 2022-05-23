@@ -8,3 +8,25 @@ data <- read.csv("clean_data/train_clean_v1.csv")
 data
 ```
 
+
+```{r}
+model1 <- lm(SalePrice~. - Id, data=data)
+summary(model1)
+```
+
+```{r}
+s = summary(model1)
+reduced.vars <- row.names(s$coef)[2:dim(s$coef)[1]]
+reduced.vars <- append(reduced.vars, "SalePrice")
+```
+
+
+```{r}
+data2 <- data[, reduced.vars]
+data2
+```
+
+
+
+
+
