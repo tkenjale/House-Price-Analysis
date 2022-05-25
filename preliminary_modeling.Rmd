@@ -26,6 +26,27 @@ data2 <- data[, reduced.vars]
 data2
 ```
 
+```{r}
+write.csv(data2, "clean_data/train_clean_v2.csv", row.names = FALSE)
+```
+
+
+```{r}
+data3 <- read.csv("clean_data/train_clean_v3.csv")
+data3
+```
+
+```{r}
+scaled.X <- subset(data3, select = -SalePrice)
+scaled.y <- data3$SalePrice
+```
+
+```{r}
+pca <- prcomp(scaled.X)
+plot(pca$sdev)
+plot(summary(pca)$importance[3,])
+```
+
 
 
 
